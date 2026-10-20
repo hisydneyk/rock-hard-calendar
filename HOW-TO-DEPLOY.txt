@@ -1,0 +1,64 @@
+ROCK HARD MARKETING CALENDAR: NETLIFY SETUP
+===========================================
+
+What's in this folder
+- public/index.html: the calendar page
+- netlify/functions/calendar.mjs: the small save function that stores entries in your Netlify site
+- netlify.toml and package.json: tell Netlify how to build it
+
+Why GitHub: Netlify only runs the save function when the site deploys from a
+Git repository (or the Netlify command line). Drag-and-drop uploads publish the
+page but can't save edits.
+
+
+ONE-TIME SETUP (about 10 minutes)
+---------------------------------
+1. Create a GitHub repository
+   - Sign in at github.com (a free account works).
+   - Click "+" (top right), then "New repository".
+   - Name it rock-hard-calendar. Private is fine. Click "Create repository".
+
+2. Upload these files
+   - On the new repository page, click "uploading an existing file".
+   - Unzip this download, open the folder, select everything inside it
+     (public, netlify, netlify.toml, package.json, this file) and drag it all
+     into the GitHub page. Keep the folders as they are.
+   - Click "Commit changes".
+
+3. Connect your Netlify site to the repository
+   Keep your current site address:
+   - In Netlify, open your existing calendar site.
+   - Go to Site configuration > Build & deploy > Continuous deployment,
+     click "Link repository", choose GitHub, and pick rock-hard-calendar.
+   - Leave the build settings as Netlify fills them in (publish directory:
+     public). Click "Deploy".
+   Or start fresh with a new site: Add new site > Import an existing project >
+   GitHub > rock-hard-calendar > Deploy.
+
+4. Open the site
+   - On the first visit, the calendar loads all current entries into Netlify
+     by itself. After that, every add, edit or check-off saves to Netlify and
+     shows up for everyone (other open copies refresh within about 20 seconds).
+   - The "Download backup" and "Import entries" buttons appear next to the
+     month controls once saving is working. If you see "View only" instead,
+     the function isn't running yet. Check that step 3 deployed from GitHub.
+
+
+UPDATING THE PAGE LATER
+-----------------------
+When Claude gives you a new index.html, open the repository on GitHub, go into
+the public folder, click "Add file" > "Upload files", drop in the new
+index.html, and commit. Netlify redeploys on its own, and your saved entries
+are kept (they live in Netlify, not in the file).
+
+If you connect GitHub to Claude (claude.ai Settings > Connectors) and share the
+repository name, Claude can push updates to the page for you.
+
+
+GOOD HABITS
+-----------
+- Click "Download backup" now and then. It saves a .json copy of every entry.
+- "Import entries" adds or updates entries from a backup or from a file
+  Claude makes for you. Entries with the same ID are replaced, and nothing
+  else is deleted.
+- Anyone with the site address can add, change or delete entries.
