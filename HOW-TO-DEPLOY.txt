@@ -58,7 +58,12 @@ repository name, Claude can push updates to the page for you.
 GOOD HABITS
 -----------
 - Click "Download backup" now and then. It saves a .json copy of every entry.
-- "Import entries" adds or updates entries from a backup or from a file
-  Claude makes for you. Entries with the same ID are replaced, and nothing
-  else is deleted.
+- Changes you make on the site save to Netlify right away. No import needed.
+- When Claude adds or changes entries, it writes them to
+  public/claude-updates.json in this repository. Netlify redeploys, and the
+  next time anyone opens the calendar those changes load automatically, once
+  each. They never overwrite edits made on the site afterward.
+- Deleted entries are kept in a hidden trash in Netlify, so Claude can bring
+  one back if it was removed by mistake.
+- "Import entries" is still there for restoring a downloaded backup.
 - Anyone with the site address can add, change or delete entries.
